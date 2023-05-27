@@ -206,7 +206,7 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
 
-    status_command while echo " [  $(date +%T) ] [  $(date '+%d/%m/%y (%a)') ] [  $(upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep percentage | awk '{print $2}') ] "; do sleep 1; done
+    status_command while echo " [ TIME: $(date +%T) ] [ DATE: $(date +%D)] [ BATTERY: $(acpi -b | awk -F ", " '{print $2}') ] "; do sleep 1; done
 
     colors {
         statusline #ffffff
